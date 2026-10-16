@@ -1,0 +1,15 @@
+{
+  "id": "VET-INSTALL-SCRIPT",
+  "title": "装了就会自动执行 —— package.json 的 scripts 里有安装钩子",
+  "severity": "high",
+  "source": "npm 官方文档 · package.json scripts 生命周期：preinstall / install / postinstall 在 `npm install` 时自动执行，装包的人看不到任何提示，也无法在装之前拦住。这是 npm 供应链攻击最常用的入口。",
+  "advice": "安装时自动执行的脚本，是第三方包拿到你机器控制权最直接的方式。装之前请先看这段脚本干了什么；如果它只是编译或生成文件，可以接受；如果它下载东西、读用户目录、连网络，就不要装。",
+  "check": {
+    "type": "file-pattern",
+    "wholeFile": true,
+    "pattern": "\"scripts\"\\s*:\\s*\\{[^}]*\"(pre|post)?install\"",
+    "flags": "s",
+    "paths": ["package.json"],
+    "max": 20
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "VET-OUTBOUND",
+  "title": "会往网络上发东西",
+  "severity": "medium",
+  "source": "Node 官方文档 · node:http / node:https / node:net / global fetch —— 这些是代码往外发数据的通道。不是坏事，但装一个本地工具时你要知道它会出网。",
+  "advice": "出网本身不一定有问题（检查更新、拉依赖都需要）。要看的是：往哪个地址发、发的是什么。把同文件里的 URL 字面量一起看一下。",
+  "check": {
+    "type": "file-pattern",
+    "pattern": "\\b(fetch\\s*\\(|https?\\.request\\s*\\(|https?\\.get\\s*\\(|net\\.connect\\s*\\(|axios\\.|got\\s*\\()",
+    "flags": "g",
+    "exts": [
+      ".js",
+      ".mjs",
+      ".cjs",
+      ".ts"
+    ],
+    "max": 40
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "VET-DEP-SOURCE",
+  "title": "依赖来自 registry 之外 —— 绕过了包名审核",
+  "severity": "medium",
+  "source": "npm 官方 registry 规范：依赖通常写版本号，从 registry.npmjs.org 拉取。写成 git: / github: / http: / file: 时，拉的是任意一个仓库或归档，不经过 npm 的包名与账号体系。",
+  "advice": "从 git 仓库直装依赖，等于信任那个仓库的当前状态 —— 它可以在你下次安装时换成别的内容，而版本号没变。尽量改用已发布的 npm 包并锁定版本。",
+  "check": {
+    "type": "file-pattern",
+    "pattern": "\"[^\"]+\"\\s*:\\s*\"(git\\+|git:|github:|http:|https:|file:|\\.\\.?/)",
+    "flags": "g",
+    "paths": [
+      "package.json"
+    ],
+    "max": 30,
+    "wholeFile": true
+  }
+}

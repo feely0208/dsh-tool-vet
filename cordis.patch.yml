@@ -1,0 +1,4 @@
+# @deepwhale-cn/dsh-tool-vet 的组合层
+- insert:
+    - id: tool-vet
+      name: '@deepwhale-cn/dsh-tool-vet'

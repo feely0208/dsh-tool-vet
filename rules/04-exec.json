@@ -1,0 +1,19 @@
+{
+  "id": "VET-EXEC",
+  "title": "会执行外部命令",
+  "severity": "medium",
+  "source": "Node 官方文档 · node:child_process —— exec / execSync / spawn / spawnSync / execFile。拿到 shell 就等于拿到这台机器。",
+  "advice": "很多工具确实需要调外部命令（git、python、ffmpeg）。要看的是**拼接进来的东西** —— 如果命令里拼了用户输入或网络内容，就是命令注入。",
+  "check": {
+    "type": "file-pattern",
+    "pattern": "\\b(child_process|execSync|execFileSync|spawnSync|exec\\s*\\(|spawn\\s*\\()",
+    "flags": "g",
+    "exts": [
+      ".js",
+      ".mjs",
+      ".cjs",
+      ".ts"
+    ],
+    "max": 40
+  }
+}

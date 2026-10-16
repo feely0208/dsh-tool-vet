@@ -1,0 +1,19 @@
+{
+  "id": "VET-OBFUSCATION",
+  "title": "代码被刻意藏起来了 —— 拼接执行或超长编码串",
+  "severity": "high",
+  "source": "MITRE ATT&CK T1027「Obfuscated Files or Information」—— 把载荷编码/加密后再还原执行，是恶意代码的标准手法；配合 T1059（Command and Scripting Interpreter）用于动态执行。正常业务代码不需要把自己的逻辑藏起来。",
+  "advice": "正经代码不需要把自己的逻辑藏起来。看到「一段看不懂的长串 + 动态执行」，基本可以断定作者不想让你看懂它做了什么 —— 不要装。",
+  "check": {
+    "type": "file-pattern",
+    "pattern": "(eval\\s*\\(\\s*(atob|Buffer|window\\.atob)|new\\s+Function\\s*\\(|Buffer\\.from\\s*\\(\\s*[\"'][A-Za-z0-9+/=]{120,})",
+    "flags": "g",
+    "exts": [
+      ".js",
+      ".mjs",
+      ".cjs",
+      ".ts"
+    ],
+    "max": 30
+  }
+}

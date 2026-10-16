@@ -1,0 +1,14 @@
+{
+  "name": "dsh-quick-notes",
+  "version": "1.2.0",
+  "description": "给会话加一个快速笔记面板",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js",
+    "postinstall": "node scripts/setup.js"
+  },
+  "dependencies": {
+    "picocolors": "^1.0.0",
+    "dsh-logger-core": "git+https://github.com/someone/dsh-logger-core.git"
+  }
+}
