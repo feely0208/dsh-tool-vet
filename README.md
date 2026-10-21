@@ -1,5 +1,7 @@
 # @deepwhale-cn/dsh-tool-vet
 
+[![dshfind 收录](https://dshfind.com/api/badge/feely0208/dsh-tool-vet?lang=zh)](https://dshfind.com/zh/plugins/feely0208/dsh-tool-vet)
+
 **装第三方插件之前，先看它会动什么。**
 
 **关键词**：工具审查 · 插件审查 · 装之前先查 · 权限 · 能力枚举 · 供应链安全 · postinstall · 恶意依赖 · 可信度
